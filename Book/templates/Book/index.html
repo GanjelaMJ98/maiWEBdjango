@@ -6,32 +6,67 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+<!--
+<div class="container">
+<form action="/book/search/" method="post">
+    {% csrf_token %}
 
+    <div class="form-row">
+        <div class="col-2">
+        Name:<input class="form-control" type="text" name = "name"><br>
+            </div>
+        Surname:<input class="form-control" type="text" name = "surname"><br>
+        Patron:<input class="form-control" type="text" name = "patron"><br>
+        Number:<input class="form-control" type="text" name = "number"><br>
+        Email:<input class="form-control" type="email" name = "email"><br>
+        Gender:<input  type="radio" name = "gender" value="M">Man<br>
+            <input type="radio" name = "gender" value="W">Woman<br>
+    </div>
+
+</form>
+</div>
+-->
+
+<div class="jumbotron">
+
+
+<div class="container-fluid">
+
+<form action="/book/search/" method="post">
+    {% csrf_token %}
 <div class="form-group row">
   <div class="col-xs-1">
     <label for="ex1">Name:</label>
-    <input class="form-control" id="ex1" type="text">
+    <input class="form-control" type="text" name = "name">
   </div>
   <div class="col-xs-1">
     <label for="ex2">Surname:</label>
-    <input class="form-control" id="ex2" type="text">
+    <input class="form-control" type="text" name = "surname">
   </div>
   <div class="col-xs-1">
     <label for="ex3">Patron:</label>
-    <input class="form-control" id="ex3" type="text">
-  </div>
-   <div class="col-xs-1">
-    <label for="ex1">Gender:</label>
-    <input class="form-control" id="ex1" type="text">
+    <input class="form-control" type="text" name = "patron">
   </div>
   <div class="col-xs-2">
     <label for="ex2">Number:</label>
-    <input class="form-control" id="ex2" type="text">
+    <input class="form-control" type="text" name = "number">
   </div>
   <div class="col-xs-2">
     <label for="ex3">Email:</label>
-    <input class="form-control" id="ex3" type="text">
+    <input class="form-control" type="email" name = "email">
   </div>
+   <div class="col-xs-1">
+    <label for="ex1">Gender:</label><br>
+    <input  type="radio" name = "gender" value="M">Man<br>
+        <input type="radio" name = "gender" value="W">Woman
+  </div>
+</div>
+    <div class="container-fluid">
+    <button class="btn btn-primary" type="submit">SEARCH</button>
+</form>
+    <a href ="/book/add_view/"><button type="button"
+                    class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>ADD</button></a>
+    </div>
 </div>
 {% if user_list %}
     <ul>
@@ -47,7 +82,8 @@
                 <td>EMAIL</td>
                 <td>CITY</td>
                 <td>STREET</td>
-                <td>WORK</td>
+                <td>WORK PLACE</td>
+                <td>WORK POSITION</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
@@ -62,10 +98,11 @@
                 <td><li><a href="/user/{{ user.id }}/">{{ user.email }}</a></li></td>
                 <td>{{user.city}}</td>
                 <td>{{user.street}}</td>
-                <td>{{user.work}}</td>
-                <td><a href ="#"><button type="button"
-                    class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Edit</button></a></td>
-                <td><a href ="#"><button type="button"
+                <td>{{user.work.place}}</td>
+                <td>{{user.work.position}}</td>
+                <td><a href ="/book/change_view/{{ user.id }}/"><button type="button"
+                    class="btn btn-secondary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>Change</button></a></td>
+                <td><a href ="/book/delete_view/{{ user.id }}/"><button type="button"
                     class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>Delete</button></a></td>
             </tr>
 
@@ -74,11 +111,10 @@
     </ul>
 </table>
         </div>
-<a href ="/book/add/"><button type="button"
-                    class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>ADD</button></a>
-<a href ="/book/search/"><button type="button"
-                    class="btn btn-default"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>SEARCH</button></a>
 
 {% else %}
     <p>No user are available.</p>
 {% endif %}
+
+
+</div>

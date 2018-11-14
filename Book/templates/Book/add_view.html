@@ -1,0 +1,73 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<!--
+<form action="/book/add_view/add/" method="post">
+    {% csrf_token %}
+    Name:<input type="text" name = "name"><br>
+    Surname:<input type="text" name = "surname"><br>
+    Patron:<input type="text" name = "patron"><br>
+    Gender:<input type="radio" name = "gender" value="M">Man<br>
+            <input type="radio" name = "gender" value="W">Woman<br>
+    Number:<input type="text" name = "number"><br>
+    Email:<input type="email" name = "email"><br>
+
+    Street:<input type="text" name = "street"><br>
+    City:<input type="text" name = "city"><br>
+
+    Work place:<input type="text" name = "place"><br>
+    Work position:<input type="text" name = "position"><br>
+
+    <button type="submit">ADD</button>
+</form> -->
+<form action="/book/add_view/add/" method="post">
+    {% csrf_token %}
+<div class="form-group row">
+  <div class="col-xs-1">
+    <label for="ex1">Name:</label>
+    <input class="form-control" type="text" name = "name">
+  </div>
+  <div class="col-xs-1">
+    <label for="ex2">Surname:</label>
+    <input class="form-control" type="text" name = "surname">
+  </div>
+  <div class="col-xs-1">
+    <label for="ex3">Patron:</label>
+    <input class="form-control" type="text" name = "patron">
+  </div>
+  <div class="col-xs-2">
+    <label for="ex2">Number:</label>
+    <input class="form-control" type="text" name = "number">
+  </div>
+  <div class="col-xs-2">
+    <label for="ex3">Email:</label>
+    <input class="form-control" type="email" name = "email">
+  </div>
+   <div class="col-xs-1">
+    <label for="ex1">Gender:</label><br>
+    <input  type="radio" name = "gender" value="M">Man<br>
+        <input type="radio" name = "gender" value="W">Woman
+  </div>
+    <div class="col-xs-2">
+    <label for="ex2">Street:</label>
+    <input class="form-control" type="text" name = "street">
+  </div>
+    <div class="col-xs-2">
+    <label for="ex2">City:</label>
+    <input class="form-control" type="text" name = "city">
+  </div>
+    <div class="col-xs-2">
+    <label for="ex2">Work place::</label>
+    <input class="form-control" type="text" name = "place">
+  </div>
+    <div class="col-xs-2">
+    <label for="ex2">Work position:</label>
+    <input class="form-control" type="text" name = "position">
+  </div>
+</div>
+</form>

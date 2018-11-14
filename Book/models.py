@@ -5,6 +5,9 @@ class Work(models.Model):
     position = models.CharField(max_length=50)
     def __str__(self):
         return self.place
+    def view(self):
+        return "Place: {0} Position: {1}".format(self.place, self.position)
+
 
 class Street(models.Model):
     street_name = models.CharField(max_length=50)
@@ -31,6 +34,6 @@ class User(models.Model):
     work = models.ForeignKey(Work, on_delete=models.CASCADE)
     def __str__(self):
         return "{0} {1} {2}".format(self.surname, self.name, self.patron)
-    def viev(self):
+    def view(self):
         return "{0} {1} {2}".format(self.surname, self.name, self.patron)
 

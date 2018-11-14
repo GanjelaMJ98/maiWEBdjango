@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user %}
+<li><a>{{ user.surname }}</a></li>
+<li><a>{{ user.name }}</a></li>
+<li><a>{{ user.patron }}</a></li>
+<li><a>{{ user.gender }}</a></li>
+<li><a>{{ user.number }}</a></li>
+<li><a>{{ user.email }}</a></li>
+<li><a>{{ user.street}}</a></li>
+<li><a>{{ user.city }}</a></li>
+<li><a>{{ user.work.view }}</a></li>
+
+<a href="/book/delete/{{user.id}}"> <button" type="submit">YES</button> </a>
+<a href="/book/"> <button" type="submit">NO</button> </a>
+{% endif %}
+
+
+
+
+
+
+
+
+</body>
+</html>

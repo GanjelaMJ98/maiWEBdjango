@@ -20,6 +20,11 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^add/$', views.add, name='add'),
-    url(r'^add/input/$', views.input),
+    url(r'^add_view/$', views.add_view, name='add_view'),
+    url(r'^search/$', views.search, name='search'),
+    url(r'^add_view/add/$', views.add, name='add'),
+    url(r'^delete_view/(?P<user_id>[0-9]+)/$', views.delete_view, name='delete_view'),
+    url(r'^delete/(?P<user_id>[0-9]+)/$', views.delete, name='delete'),
+    url(r'^change_view/(?P<user_id>[0-9]+)/$', views.change_view, name='change_view'),
+    url(r'^change/(?P<user_id>[0-9]+)/$', views.change, name='change'),
 ]
