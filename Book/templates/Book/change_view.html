@@ -10,126 +10,125 @@
 </head>
 
 <body>
-{% if user %}
-<form action="/book/change/{{user.id}}/" method="post">
-    {% csrf_token %}
+    <div class="container-fluid">
+    {% if user %}
+        <form action="/book/change/{{user.id}}/" method="post">
+        {% csrf_token %}
 
-   <div class="form-group row">
-    <label  class="col-sm-1 col-form-label">Surname</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" name = "surname" value={{user.surname}}>
+            <div class="form-group row">
+                <label  class="col-sm-1 col-form-label">Surname</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name = "surname" value={{user.surname}}>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Name</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name = "name" value={{user.name}}>
+                </div>
+            </div>
+
+
+
+            <div class="form-group row">
+                <label  class="col-sm-1 col-form-label">Patron</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name = "patron" value={{user.patron}}>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Numder</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name = "number" value={{user.number}}>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label">Email</label>
+                <div class="col-sm-2">
+                    <input type="email" class="form-control" name = "email" value={{user.email}}>
+                </div>
+            </div>
+ 
+            <fieldset class="form-group row">
+            <label class="col-sm-1 col-form-label" >Gender</label>
+                <div class="row">
+                
+                    <div class="col-sm-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender"  value="Man" {% if gender == "Man" %} checked="checked" {% endif %}>
+                            <label class="form-check-label" >Man</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender"  value="Woman" {% if gender == "Woman" %} checked="checked" {% endif %} >
+                            <label class="form-check-label" >Woman</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-group row">
+                <label class="col-sm-1 col-form-label" >Street</label>
+                <div class="col-sm-2">
+                    <select class="form-control" name = "street" >
+                        <option selected>{{user.street}}</option>
+                        {% for street in streets %}
+                        <option value={{street.street_name}}>{{street.street_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                    <label class="col-sm-1 col-form-label" ">City</label>
+                     <div class="col-sm-2">
+                <select class="form-control" name = "city">
+                    <option selected>{{user.city}}</option>
+                    {% for city in  cities %}
+                    <option value={{city.city_name}}>{{city.city_name}}</option>
+                    {% endfor %}
+                </select>
+                 </div>
+            </div>
+
+            <div class="form-group row">
+               
+                    <label class="col-sm-1 col-form-label">Work place</label>
+          <div class="col-sm-2">
+                <select class="form-control"  name = "place">
+                    <option selected>{{user.work.place}}</option>
+                    {% for work in  works %}
+                    <option value={{work.place}}>{{work.place}}</option>
+                    {% endfor %}
+                </select>
+                 </div>
+            </div>
+
+            <div class="form-group row">
+               
+                    <label class="col-sm-1 col-form-label">Work position</label>
+             <div class="col-sm-2">
+                <select class="form-control"  name = "position">
+                    <option selected>{{user.work.position}}</option>
+                    {% for work in  works %}
+                    <option value={{work.position}}>{{work.position}}</option>
+                    {% endfor %}
+                </select>
+                 </div>
+            </div>
+
+        <button class="btn btn-primary" type="submit">YES</button>
+        </form>
+        {% endif %}
+        <br>
+        <a href ="/book/"><button type="button" class="btn btn-danger">NO</button></a>
+
     </div>
-  </div>
-
-   <div class="form-group row">
-    <label class="col-sm-1 col-form-label">Name</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" name = "name" value={{user.name}}>
-    </div>
-  </div>
-
-
-
-   <div class="form-group row">
-    <label  class="col-sm-1 col-form-label">Patron</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" name = "patron" value={{user.patron}}>
-    </div>
-  </div>
-
-
-   <div class="form-group row">
-    <label class="col-sm-1 col-form-label">Numder</label>
-    <div class="col-sm-2">
-      <input type="text" class="form-control" name = "number" value={{user.number}}>
-    </div>
-  </div>
-
-
-   <div class="form-group row">
-    <label class="col-sm-1 col-form-label">Email</label>
-    <div class="col-sm-2">
-      <input type="email" class="form-control" name = "email" value={{user.email}}>
-    </div>
-  </div>
-
-  <fieldset class="form-group">
-    <div class="row">
-      <legend class="col-form-label col-sm-1 pt-0">Genger</legend>
-      <div class="col-sm-2">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gender"  value="Man" >
-          <label class="form-check-label" >
-            Man
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gender"  value="Woman">
-          <label class="form-check-label" >
-            Woman
-          </label>
-        </div>
-      </div>
-    </div>
-  </fieldset>
-
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" >Street</label>
-  </div>
-  <select class="custom-select" name = "street" >
-    <option selected>{{user.street}}</option>
-     {% for street in streets %}
-    <option value={{street.street_name}}>{{street.street_name}}</option>
-     {% endfor %}
-  </select>
-</div>
-
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text" ">City</label>
-  </div>
-  <select class="custom-select" name = "city">
-    <option selected>{{user.city}}</option>
-     {% for city in  cities %}
-        <option value={{city.city_name}}>{{city.city_name}}</option>
-     {% endfor %}
-  </select>
-</div>
-
-    <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text">Work place</label>
-  </div>
-  <select class="custom-select"  name = "place">
-    <option selected>{{user.work.place}}</option>
-     {% for work in  works %}
-    <option value={{work.place}}>{{work.place}}</option>
-     {% endfor %}
-  </select>
-</div>
-
- <div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <label class="input-group-text">Work position</label>
-  </div>
-  <select class="custom-select"  name = "position">
-    <option selected>{{user.work.position}}</option>
-     {% for work in  works %}
-    <option value={{work.position}}>{{work.position}}</option>
-     {% endfor %}
-  </select>
-</div>
-
-<button type="submit">YES</button>
-</form>
-{% endif %}
-
-
-
-<a href="/book/"> <button" type="submit">NO</button> </a>
-
-
 
 </body>
+
 </html>

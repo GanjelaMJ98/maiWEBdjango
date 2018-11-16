@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from . import views
+from . import tables
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
@@ -27,4 +28,13 @@ urlpatterns = [
     url(r'^delete/(?P<user_id>[0-9]+)/$', views.delete, name='delete'),
     url(r'^change_view/(?P<user_id>[0-9]+)/$', views.change_view, name='change_view'),
     url(r'^change/(?P<user_id>[0-9]+)/$', views.change, name='change'),
+    url(r'^street/$', tables.street, name='street'),
+    url(r'^city/$', tables.city, name='city'),
+    url(r'^work/$', tables.work, name='work'),
+    url(r'^street/(?P<value_id>[0-9]+)/$', tables.street_view, name='street_view'),
+    url(r'^city/(?P<value_id>[0-9]+)/$', tables.city_view, name='city_view'),
+    url(r'^work/(?P<value_id>[0-9]+)/$', tables.work_view, name='work_view'),
+    url(r'^street/(?P<value_id>[0-9]+)/change/$', tables.street_view, name='street_view'),
+    url(r'^city/(?P<value_id>[0-9]+)/change/$', tables.city_view, name='city_view'),
+    url(r'^work/(?P<value_id>[0-9]+)/change/$', tables.work_view, name='work_view'),
 ]

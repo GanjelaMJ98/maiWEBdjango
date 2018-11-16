@@ -100,7 +100,10 @@ def change_view(request, user_id):
     streets = Street.objects.all()
     cities = City.objects.all()
     works = Work.objects.all()
-    context = {'user': user , 'streets': streets, 'cities': cities, 'works': works}
+    if user.gender == "Man":
+        context = {'user': user, 'streets': streets, 'cities': cities, 'works': works , "gender": "Man"}
+    else:
+        context = {'user': user, 'streets': streets, 'cities': cities, 'works': works, "gender": "Woman"}
     return render(request, 'Book/change_view.html', context)
 
 def change(request, user_id):
@@ -110,6 +113,7 @@ def change(request, user_id):
     user.patron = request.POST['patron']
     user.number = request.POST['number']
     user.gender = request.POST['gender']
+    user.email = request.POST['email']
     street = Street.objects.get(street_name = request.POST['street'])
     user.street = street
     city = City.objects.get(city_name=request.POST['city'])
@@ -119,3 +123,4 @@ def change(request, user_id):
     user.save()
     context = {'user': user}
     return render(request, 'Book/change.html', context)
+

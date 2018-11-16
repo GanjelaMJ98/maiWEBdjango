@@ -8,14 +8,34 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-{% if user %}
-<li><a>DELETED</a></li>
-<li><a>{{ user.surname }}</a></li>
-<li><a>{{ user.name }}</a></li>
-<li><a>{{ user.patron }}</a></li>
-{% endif %}
-<a href="/book/"><button type="submit">HOME</button></a>
 
+<body>
+
+	<div class="container-fluid">
+  		<h2>User successfully deleted</h2><br>
+  		{% if user %}
+			<h4>Surname:</h4>
+			<h3>{{ user.surname }}</h3>
+			<h4>Name:</h4>
+			<h3>{{ user.name }}</h3>
+			<h4>Patron:</h4>
+			<h3>{{ user.patron }}</h3>
+			<h4>Gender:</h4>
+			<h3>{{ user.gender }}</h3>
+			<h4>Number:</h4>
+			<h3>{{ user.number }}</h3>
+			<h4>Email:</h4>
+			<h3>{{ user.email }}</h3>
+			<h4>Street:</h4>
+			<h3>{{ user.street}}</h3>
+			<h4>City:</h4>
+			<h3>{{ user.city }}</h3>
+			<h4>Work place:</h4>
+			<h3>{{ user.work.place }}</h3>
+			<h4>Work position:</h4>
+			<h3>{{ user.work.position }}</h3>
+		{% endif %}
+  		<a href ="/book/"><button type="button" class="btn btn-info">HOME</button></a>
+	</div>
 </body>
 </html>

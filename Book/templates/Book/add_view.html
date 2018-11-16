@@ -5,6 +5,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: black;
+  }
+  </style>
 </head>
 <!--
 <form action="/book/add_view/add/" method="post">
@@ -25,49 +32,58 @@
 
     <button type="submit">ADD</button>
 </form> -->
-<form action="/book/add_view/add/" method="post">
+<body>
+<div class="container-fluid">
+    <form action="/book/add_view/add/" method="post">
     {% csrf_token %}
-<div class="form-group row">
-  <div class="col-xs-1">
-    <label for="ex1">Name:</label>
-    <input class="form-control" type="text" name = "name">
-  </div>
-  <div class="col-xs-1">
-    <label for="ex2">Surname:</label>
-    <input class="form-control" type="text" name = "surname">
-  </div>
-  <div class="col-xs-1">
-    <label for="ex3">Patron:</label>
-    <input class="form-control" type="text" name = "patron">
-  </div>
-  <div class="col-xs-2">
-    <label for="ex2">Number:</label>
-    <input class="form-control" type="text" name = "number">
-  </div>
-  <div class="col-xs-2">
-    <label for="ex3">Email:</label>
-    <input class="form-control" type="email" name = "email">
-  </div>
-   <div class="col-xs-1">
-    <label for="ex1">Gender:</label><br>
-    <input  type="radio" name = "gender" value="M">Man<br>
-        <input type="radio" name = "gender" value="W">Woman
-  </div>
-    <div class="col-xs-2">
-    <label for="ex2">Street:</label>
-    <input class="form-control" type="text" name = "street">
-  </div>
-    <div class="col-xs-2">
-    <label for="ex2">City:</label>
-    <input class="form-control" type="text" name = "city">
-  </div>
-    <div class="col-xs-2">
-    <label for="ex2">Work place::</label>
-    <input class="form-control" type="text" name = "place">
-  </div>
-    <div class="col-xs-2">
-    <label for="ex2">Work position:</label>
-    <input class="form-control" type="text" name = "position">
-  </div>
-</div>
-</form>
+        <div class="row-xs-1">
+            <label>Surname:</label>
+            <input class="form-control" type="text" name = "surname">
+        </div>
+        <div class="row-xs-2">
+            <label>Name:</label>
+            <input class="form-control" size="2" type="text" name = "name" >
+        </div>
+        <div class="row-xs-1">
+            <label>Patron:</label>
+            <input class="form-control" type="text" name = "patron">
+        </div>
+        <div class="row-xs-1">
+            <label>Number:</label>
+            <input class="form-control" type="text" name = "number">
+        </div>
+        <div class="row-xs-1">
+            <label>Email:</label>
+            <input class="form-control" type="email" name = "email">
+        </div>
+        <div class="row-xs-1">
+            <label>Gender:</label><br>
+            <input type="radio" name = "gender" value="Man">Man
+            <input type="radio" name = "gender" value="Woman">Woman
+        </div>
+        <div class="row-xs-1">
+            <label>Street:</label>
+            <input class="form-control" type="text" name = "street">
+        </div>
+        <div class="row-xs-1">
+            <label>City:</label>
+            <input class="form-control" type="text" name = "city">
+        </div>
+        <div class="row-xs-1">
+            <label>Work place::</label>
+            <input class="form-control" type="text" name = "place">
+        </div>
+        <div class="row-xs-2">
+            <label>Work position:</label>
+            <input class="form-control" type="text" name = "position">
+        </div>
+        <div class="row-xs-2">
+        <label></label>
+        </div>
+        <div class="row-xs-2">
+            <button class="btn btn-primary" type="submit">ADD</button>
+            <a href ="/book/"><button type="button" class="btn btn-info">HOME</button></a>
+        </div>
+    </form>
+ </div>
+ </body>

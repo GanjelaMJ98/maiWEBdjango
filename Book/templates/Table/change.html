@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PhoneBook Table</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  body {
+      font: 20px Montserrat, sans-serif;
+      line-height: 1.8;
+      color: black;
+  }
+  </style>
+</head>
+
+
+
+<body>
+    <div class="container-fluid">
+        <form action="/book/{{table}}/{{value.id}}/change/" method="post">
+{% for value in  value_list %}
+        <div class="form-group row">
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name = {{value}} value={{value}}>
+                </div>
+        </div>
+{% endfor %}
+            <button class="btn btn-primary" type="submit">Change</button>
+        </form>
+        <a href ="/book/"><button type="button" class="btn btn-info">Home</button></a>
+        <a href ="/book/{{table}}/{{value.id}}/delete/"><button type="button" class="btn btn-danger">Delete</button></a>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
